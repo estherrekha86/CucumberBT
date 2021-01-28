@@ -17,7 +17,6 @@ import CommonUtils.ReadAndWriteExcelFile;
 import CommonUtils.ReadAndWritePropertyFile;
 import CommonUtils.TriggerMail;
 import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
 import cucumber.runtime.ClassFinder;
 import cucumber.runtime.RuntimeOptions;
 import cucumber.runtime.RuntimeOptionsFactory;
@@ -41,7 +40,7 @@ import managers.WebDriverManager;
 
 @CucumberOptions(plugin= { "html:target/cucumber-html-report","json:target/cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:Reports/report.html"},monochrome =true)
 
-public class TestRunner {
+public class TestRunnerTest {
 	
 	WebDriver driver;
 	ReadAndWritePropertyFile propFileVar;	
@@ -51,7 +50,7 @@ public class TestRunner {
 	public static Map<String,String> testData;
 	ReadAndWriteExcelFile excelFileVar;
 	
-	TestRunner(){
+	TestRunnerTest(){
 		excelFileVar = new ReadAndWriteExcelFile();
 		propFileVar = new ReadAndWritePropertyFile();
 	}

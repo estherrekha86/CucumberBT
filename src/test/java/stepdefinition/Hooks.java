@@ -8,19 +8,19 @@ import CommonUtils.TriggerMail;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import managers.WebDriverManager;
-import testrunner.TestRunner;
+import testrunner.TestRunnerTest;
 
 public class Hooks {
 	@After
 	public void afterScenario(Scenario scenario) throws IOException
 	{
 		if(scenario.isFailed()) {
-			String a = WebDriverManager.captureScreenshot(TestRunner.tagNameOfSce);
+			String a = WebDriverManager.captureScreenshot(TestRunnerTest.tagNameOfSce);
 			Reporter.addScreenCaptureFromPath(a);
-			TriggerMail.listOfFailedTC.add(TestRunner.tagNameOfSce);
+			TriggerMail.listOfFailedTC.add(TestRunnerTest.tagNameOfSce);
 			
 		} else  {
-			TriggerMail.listOfPassedTC.add(TestRunner.tagNameOfSce);
+			TriggerMail.listOfPassedTC.add(TestRunnerTest.tagNameOfSce);
 		}
 	}
 
